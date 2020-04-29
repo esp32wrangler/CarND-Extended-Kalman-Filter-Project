@@ -51,7 +51,7 @@ void KalmanFilter::Update(const VectorXd &z) {
 void KalmanFilter::UpdateEKF(const VectorXd &z, MatrixXd &Hj) {
     float ro = sqrt(x_(0)*x_(0) + x_(1) * x_(1));
     float fi = atan2(x_(1), x_(0));
-    std::cout << "fifi " << fi << " " << x_(1) << " " << x_(0) << std::endl;
+    //std::cout << "fifi " << fi << " " << x_(1) << " " << x_(0) << std::endl;
     assert (fi > -M_PI && fi < M_PI);
     
     float rodot = (x_(0)*x_(2)+x_(1)*x_(3))/ro;
