@@ -83,8 +83,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
     }
     else if (measurement_pack.sensor_type_ == MeasurementPackage::LASER) {
         
-        std::cout << "Laser Initialization " << endl;
-
         // set the state with the initial location and zero velocity
         ekf_.InitializeX(measurement_pack.raw_measurements_[0], measurement_pack.raw_measurements_[1], 0, 0);
 

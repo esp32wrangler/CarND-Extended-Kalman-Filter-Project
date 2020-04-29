@@ -42,7 +42,7 @@ void KalmanFilter::Update(const VectorXd &z) {
     long x_size = x_.size();
     MatrixXd I = MatrixXd::Identity(x_size, x_size);
     P_ = (I - K * H_laser_) * P_;
-    std::cout << x_(0) << " L , " << x_(1 )<< std::endl;
+    //std::cout << x_(0) << " L , " << x_(1 )<< std::endl;
 
     
 }
@@ -57,7 +57,7 @@ void KalmanFilter::UpdateEKF(const VectorXd &z, MatrixXd &Hj) {
     float rodot = (x_(0)*x_(2)+x_(1)*x_(3))/ro;
     VectorXd hx (3);
     hx << ro, fi, rodot;
-    std::cout << ro << " " << fi << " " << rodot << std::endl;
+    //std::cout << ro << " " << fi << " " << rodot << std::endl;
     
     VectorXd y (3);
     y = z - hx;
@@ -79,7 +79,7 @@ void KalmanFilter::UpdateEKF(const VectorXd &z, MatrixXd &Hj) {
     MatrixXd I = MatrixXd::Identity(x_size, x_size);
     
     x_ = x_ + (K * y);
-    std::cout << x_(0) << "R , " << x_(1 )<< std::endl;
+    //std::cout << x_(0) << "R , " << x_(1 )<< std::endl;
 
     P_ = (I - K * Hj) * P_;
     
